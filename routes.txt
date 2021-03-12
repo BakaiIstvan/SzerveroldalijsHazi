@@ -1,0 +1,57 @@
+
+Kutyák és kutyaeledelek
+- index.html - kutyák listája - táblázat (edit, delete), új kutya gomb
+- dogdetails.html - egy kutyának az adatai - táblázat az eledeleiről (delete), új eledel gomb
+- neweditdog.html - kutya létrehozása és adatainak modósítása
+- neweditfood.html - kutyaeledel létrehozása
+
+Routing
+
+middlewares/
+        renderMW.js
+
+middlewares/dog/
+        getDogsMW.js
+        saveDogMW.js
+        getDogMW.js
+        delDogMW.js
+
+middlewares/dogfood/
+        getDogfoodsMW.js
+        getDogfoodMW.js
+        saveDogfoodMW.js
+        delDogfoodMW.js
+
+GET  /
+    getDogsMW
+    renderMW(index.html)
+
+GET, POST /dog/new
+    saveDogMW
+    renderMW(neweditdog.html (new))
+        - ha valami be volt kuldve -> form elemek azzal töltődjenek fel
+
+GET, POST  /dog/edit/:dogid
+    getDogMW
+    saveDogMW
+    renderMW(neweditdog.html (edit))
+        - ha valami be volt kuldve -> form elemek azzal töltődjenek fel
+
+GET  /dog/del/:dogid
+    getDogMW
+    delDogMW
+
+GET  /dogfood/:dogid
+    getDogMW
+    getDogfoodsMW
+    renderMW(dogdetails.html)
+
+GET, POST  /dogfood/:dogid/new
+    getDogMW
+    getDogfoodMW
+    saveDogfoodMW
+    renderMW(neweditfood.html)
+
+GET /dogfood/:dogid/del/:dogfoodid
+    getDogfoodMW
+    delDogfoodMW
