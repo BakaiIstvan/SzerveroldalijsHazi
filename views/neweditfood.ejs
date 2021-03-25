@@ -1,0 +1,25 @@
+<%- include ('header', {pagetitle: 'New/Edit dogfood'}) -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Kutyaeledel módosítás / létrehozás</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="brand">Márka</label>
+                        <input type="text" class="form-control" id="brand" name="brand">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Mennyiség (g)</label>
+                        <input type="text" class="form-control" id="quantity" name="quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="energy">Energiatartalom (kcal)</label>
+                        <input type="text" class="form-control" id="energy" name="energy">
+                    </div>
+                    <a class="btn btn-primary" href="/" style="float: right;">Kutyaeledel felvétele</a>
+                    <a class="btn btn-link" href="/">Mégsem</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include ('footer') -%>
