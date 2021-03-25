@@ -11,10 +11,6 @@ const saveDogMW = require('../middleware/dog/saveDogMW');
 module.exports = function(app) {
     const objRepo = {};
 
-    app.use('/',
-        getDogsMW(objRepo),
-        renderMW(objRepo, 'index'));
-
     app.use('/dog/new',
         saveDogMW(objRepo),
         renderMW(objRepo, 'neweditdog'));
@@ -27,7 +23,7 @@ module.exports = function(app) {
     app.get('/dog/del/:dogid',
         getDogMW(objRepo),
         delDogMW(objRepo),
-        renderMW(ObjRepo, 'index'));
+        renderMW(objRepo, 'index'));
 
     app.get('/dogfood/:dogid',
         getDogMW(objRepo),
@@ -37,11 +33,15 @@ module.exports = function(app) {
     app.use('/dogfood/:dogid/new',
         getDogMW(objRepo),
         saveDogfoodMW(objRepo),
-        renderMW(objRepo, 'neweditdogfood'));
+        renderMW(objRepo, 'neweditfood'));
 
     app.get('/dogfood/:dogid/del/:dogfoodid',
         getDogMW(objRepo),
         getDogfoodMW(objRepo),
         delDogfoodMW(objRepo),
         renderMW(objRepo, 'dogdetails'));
+
+    app.use('/',
+        getDogsMW(objRepo),
+        renderMW(objRepo, 'index'));
 };
