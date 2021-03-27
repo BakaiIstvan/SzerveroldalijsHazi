@@ -1,4 +1,4 @@
-<%- include ('header', {pagetitle: 'Dog list'}) -%>
+<%- include header -%>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -21,42 +21,26 @@
                             &nbsp;
                         </th>
                     </tr>
-                    <tr>
-                        <td>
-                            Buksi
-                        </td>
-                        <td>
-                            5
-                        </td>
-                        <td>
-                            puli
-                        </td>
-                        <td>
-                            8
-                        </td>
-                        <td>
-                            <a href="/" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
-                            <a href="/dogfood/123"><i class="far fa-edit"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Beethoven
-                        </td>
-                        <td>
-                            8
-                        </td>
-                        <td>
-                            bernárthegyi
-                        </td>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            <a href="/" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
-                            <a href="/dogfood/123"><i class="far fa-edit"></i></a>
-                        </td>
-                    </tr>
+                    <% dogs.forEach(function(onedog) { %>
+                        <tr>
+                            <td>
+                                <%= onedog.name %>
+                            </td>
+                            <td>
+                                <%= onedog.age %>
+                            </td>
+                            <td>
+                                <%= onedog.breed %>
+                            </td>
+                            <td>
+                                <%= onedog.eatendogfood %>
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+                                <a href="/dogfood/<%= onedog._id %>"><i class="far fa-edit"></i></a>
+                            </td>
+                        </tr>
+                        <% }); %>
                 </table>
                 <br/>
             </div>
@@ -65,4 +49,5 @@
             </div>
         </div>
     </div>
-    <%- include ('footer') -%>
+
+    <%- include footer -%>

@@ -1,25 +1,31 @@
-<%- include ('header', {pagetitle: 'New/Edit dog'}) -%>
+<%- include header -%>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Kutya módosítás / létrehozás</h2>
-                <form>
+                <h2>Kutya
+                    <% if (typeof dog === 'undefined') { %>
+                        létrehozás
+                        <% } else { %>
+                            módosítás
+                            <% } %>
+                </h2>
+                <form method="POST">
                     <div class="form-group">
                         <label for="nev">Név</label>
-                        <input type="text" class="form-control" id="nev" name="nev">
+                        <input type="text" class="form-control" id="nev" name="nev" value="<% if (typeof dog === 'undefined') { '' } else { dog.name } %>">
                     </div>
                     <div class="form-group">
                         <label for="age">Kor</label>
-                        <input type="text" class="form-control" id="age" name="age">
+                        <input type="text" class="form-control" id="age" name="age" value="<% if (typeof dog === 'undefined') { '' } else { dog.age } %>">
                     </div>
                     <div class="form-group">
                         <label for="breed">Faj</label>
-                        <input type="text" class="form-control" id="breed" name="breed">
+                        <input type="text" class="form-control" id="breed" name="breed" value="<% if (typeof dog === 'undefined') { '' } else { dog.breed } %>">
                     </div>
-                    <a class="btn btn-primary" href="/" style="float: right;">Kutya felvétele</a>
+                    <input type="submit" class="btn btn-primary" href="/" style="float: right;" value="Kutya felvétele" />
                     <a class="btn btn-link" href="/">Mégsem</a>
                 </form>
             </div>
         </div>
     </div>
-    <%- include ('footer') -%>
+    <%- include footer -%>

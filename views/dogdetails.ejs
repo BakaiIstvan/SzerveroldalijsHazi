@@ -1,24 +1,27 @@
-<%- include ('header', {pagetitle: 'Dog details'}) -%>
+<%- include header -%>
     <div class="container">
         <div class="row mt-3">
             <div class="col-2">
                 <div class="card">
                     <div class="card-body">
-                        Név: Buksi
+                        Név:
+                        <%= dog.name %>
                     </div>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-center">
                 <div class="card" style="float:inline-end;">
                     <div class="card-body">
-                        Kor: 5
+                        Kor:
+                        <%= dog.age %>
                     </div>
                 </div>
             </div>
             <div class="col-2">
                 <div class="card" style="float: right;">
                     <div class="card-body">
-                        Faj: puli
+                        Faj:
+                        <%= dog.breed %>
                     </div>
                 </div>
             </div>
@@ -56,9 +59,9 @@
                     </tr>
                 </table>
                 <br/>
-                <a class="btn btn-primary" href="/dog/edit/123">Szerkesztés</a>
-                <a href="/dogfood/123/new"><i class="fas fa-plus-circle fa-3x" style="float: right;"></i></a>
+                <a class="btn btn-primary" href="/dog/edit/<%= dog._id %>">Szerkesztés</a>
+                <a href="/dogfood/<%= dog._id %>/new"><i class="fas fa-plus-circle fa-3x" style="float: right;"></i></a>
             </div>
         </div>
     </div>
-    <%- include ('footer') -%>
+    <%- include footer -%>

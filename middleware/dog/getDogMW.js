@@ -6,6 +6,14 @@ const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
     return function(req, res, next) {
-        next();
+        res.locals.dog = {
+            _id: 'id1',
+            name: 'Buksi',
+            age: 5,
+            breed: 'puli',
+            eatendogfood: 8
+        };
+
+        return next();
     };
 };
