@@ -1,4 +1,4 @@
-<%- include header -%>
+<%- include('header') -%>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -12,15 +12,15 @@
                 <form method="POST">
                     <div class="form-group">
                         <label for="nev">Név</label>
-                        <input type="text" class="form-control" id="nev" name="nev" value="<% if (typeof dog === 'undefined') { '' } else { dog.name } %>">
+                        <input type="text" class="form-control" id="nev" name="nev" value="<%= (typeof dog === 'undefined') ? '' : dog.name %>">
                     </div>
                     <div class="form-group">
                         <label for="age">Kor</label>
-                        <input type="text" class="form-control" id="age" name="age" value="<% if (typeof dog === 'undefined') { '' } else { dog.age } %>">
+                        <input type="text" class="form-control" id="age" name="age" value="<%= (typeof dog === 'undefined') ? '' : dog.age %>">
                     </div>
                     <div class="form-group">
                         <label for="breed">Faj</label>
-                        <input type="text" class="form-control" id="breed" name="breed" value="<% if (typeof dog === 'undefined') { '' } else { dog.breed } %>">
+                        <input type="text" class="form-control" id="breed" name="breed" value="<%= (typeof dog === 'undefined') ? '' : dog.breed %>">
                     </div>
                     <input type="submit" class="btn btn-primary" href="/" style="float: right;" value="Kutya felvétele" />
                     <a class="btn btn-link" href="/">Mégsem</a>
@@ -28,4 +28,4 @@
             </div>
         </div>
     </div>
-    <%- include footer -%>
+<%- include('footer') -%>
