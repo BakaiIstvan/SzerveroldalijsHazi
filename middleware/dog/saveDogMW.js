@@ -7,7 +7,7 @@ const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
     return function(req, res, next) {
-        if ((typeof req.body.nev === 'undefined') ||
+        if ((typeof req.body.name === 'undefined') ||
             (typeof req.body.age === 'undefined') ||
             (typeof req.body.breed === 'undefined')) {
             return next();
