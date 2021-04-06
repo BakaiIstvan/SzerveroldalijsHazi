@@ -5,15 +5,16 @@
 const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
-    return function(req, res, next) {
-        res.locals.dog = {
-            _id: 'id1',
-            name: 'Buksi',
-            age: 5,
-            breed: 'puli',
-            eatendogfood: 8
-        };
+    const DogModel = requireOption(objectrepository, 'DogModel');
 
-        return next();
+    return function(req, res, next) {
+        DogModel.findOne({_id: req.params.dogid}, (err, dog) => {
+            if (err || !dog) {
+                return next(err);
+            }
+
+            res.locals.dog = dog;
+            return next();
+        });
     };
 };

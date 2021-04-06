@@ -10,6 +10,11 @@ app.use(express.static('static'));
 // Load routing
 require('./route/index')(app);
 
+app.use((err, req, res, next) => {
+    res.end('Problem...');
+    console.log(err);
+});
+
 app.listen(3000, function() {
     console.log('On :3000');
 });

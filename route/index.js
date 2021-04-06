@@ -8,8 +8,14 @@ const getDogsMW = require('../middleware/dog/getDogsMW');
 const getDogMW = require('../middleware/dog/getDogMW');
 const saveDogMW = require('../middleware/dog/saveDogMW');
 
+const DogModel = require('../models/dog');
+const DogfoodModel = require('../models/dogfood');
+
 module.exports = function(app) {
-    const objRepo = {};
+    const objRepo = {
+        DogModel: DogModel,
+        DogfoodModel: DogfoodModel
+    };
 
     app.use('/dog/new',
         saveDogMW(objRepo),
