@@ -6,6 +6,13 @@ const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
     return function(req, res, next) {
-        next();
+        res.locals.dogfood = {
+            _id: 'id1',
+            brand: 'Pedigree',
+            quantity: 100,
+            energy: 25
+        };
+
+        return next();
     };
 };

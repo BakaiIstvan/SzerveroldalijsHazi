@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <h2>Kutyaeledel létrehozás</h2>
-                <form>
+                <form method="POST">
                     <div class="form-group">
                         <label for="brand">Márka</label>
                         <input type="text" class="form-control" id="brand" name="brand">
@@ -16,7 +16,7 @@
                         <label for="energy">Energiatartalom (kcal)</label>
                         <input type="text" class="form-control" id="energy" name="energy">
                     </div>
-                    <a class="btn btn-primary" href="/" style="float: right;">Kutyaeledel felvétele</a>
+                    <input type="submit" class="btn btn-primary" style="float: right;" value="Kutyaeledel felvétele" />
                     <a class="btn btn-link" href="/">Mégsem</a>
                 </form>
             </div>

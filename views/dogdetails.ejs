@@ -43,20 +43,22 @@
                             &nbsp;
                         </th>
                     </tr>
+                    <% dogfoods.forEach(function(onedogfood) { %>
                     <tr>
                         <td>
-                            Pedigree
+                            <%= onedogfood.brand %>
                         </td>
                         <td>
-                            100
+                            <%= onedogfood.quantity %>
                         </td>
                         <td>
-                            25
+                            <%= onedogfood.energy %>
                         </td>
                         <td style="width:30px;white-space: nowrap">
                             <a href="#" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>
+                    <% }); %>
                 </table>
                 <br/>
                 <a class="btn btn-primary" href="/dog/edit/<%= dog._id %>">Szerkesztés</a>

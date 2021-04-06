@@ -7,6 +7,12 @@ const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
     return function(req, res, next) {
-        next();
+        if ((typeof req.body.brand === 'undefined') ||
+            (typeof req.body.quantity === 'undefined') ||
+            (typeof req.body.energy === 'undefined')) {
+            return next();
+        }
+
+        res.redirect('/');
     };
 };
