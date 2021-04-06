@@ -1,5 +1,6 @@
 const renderMW = require('../middleware/renderMW');
 const delDogfoodMW = require('../middleware/dogfood/delDogfoodMW');
+const getAllDogfoodsMW = require('../middleware/dogfood/getAllDogfoodsMW');
 const getDogfoodsMW = require('../middleware/dogfood/getDogfoodsMW');
 const getDogfoodMW = require('../middleware/dogfood/getDogfoodMW');
 const saveDogfoodMW = require('../middleware/dogfood/saveDogfoodMW');
@@ -48,6 +49,7 @@ module.exports = function(app) {
         renderMW(objRepo, 'dogdetails'));
 
     app.use('/',
+        getAllDogfoodsMW(objRepo),
         getDogsMW(objRepo),
         renderMW(objRepo, 'index'));
 };
