@@ -14,7 +14,6 @@
             }
 
             res.locals.alldogfood = alldogfood;
-            console.log(res.locals.alldogfood);
             return next();
          });
      };
