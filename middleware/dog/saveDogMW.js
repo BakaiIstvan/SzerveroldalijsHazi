@@ -21,8 +21,12 @@ module.exports = function(objectrepository) {
             res.locals.dog = new DogModel();
         }
 
+        if (Number.isNaN(parseInt(req.body.age, 10))) {
+            return next(new Error('Kor számmal kell hogy megadva legyen!'));
+        }
+
         res.locals.dog.name = req.body.name;
-        res.locals.dog.age = req.body.age;
+        res.locals.dog.age = parseInt(req.body.age, 10);
         res.locals.dog.breed = req.body.breed;
 
         res.locals.dog.save(err => {
